@@ -1,0 +1,13 @@
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div *ngFor="let product of products" class="product-card">
+  <div class="product-details">
+    <h2 class="product-name">{{ product.name }}</h2>
+    <p>{{ product.description }}</p>
+    <p class="product-price">{{ product.price | currency: product.currency }}</p>
+    <!-- Add Buy button with click event handler -->
+    <button class="buy-button" (click)="buyProduct(product.id)">Buy</button>
+  </div>
+</div>

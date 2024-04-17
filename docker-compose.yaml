@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    networks:
+      - core_network
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  webhook:
+    image: webhooksite/cli
+    networks:
+      - core_network
+    entrypoint: [ "whcli", "forward", "--token=460c320a-ed18-42a4-8fde-15130877b8e9", "--api-key=ef6ef2f8-3e48-4f77-a54c-3891dc11c05c",
+                  "--target=http://host.docker.internal:8080/api/webhook/upgate/transaction" ]
+
+networks:
+  core_network:
+    driver: bridge

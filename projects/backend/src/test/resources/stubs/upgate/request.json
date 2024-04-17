@@ -1,0 +1,24 @@
+{
+  "payment_method": "CARD",
+  "merchant_payment_id": "P_001",
+  "merchant_customer_id": "U_001",
+  "amount": "9.99",
+  "currency_code": "USD",
+  "email": "john_doe@upgate.com",
+  "language": "en-us",
+  "country_code": "US",
+  "forced_3d": true,
+  "success_url": "https://example.com/success",
+  "failure_url": "https://example.com/failure",
+  "shop_name": "my shop",
+  "shop_url": "https://shop.com",
+  "products": [
+    {
+      "merchant_product_id": "R_001",
+      "product_type": "SALE",
+      "product_price": "9.99",
+      "product_name": "Test product name",
+      "product_description": "Test product description"
+    }
+  ]
+}

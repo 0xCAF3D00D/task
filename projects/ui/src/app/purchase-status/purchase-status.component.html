@@ -1,0 +1,14 @@
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="purchase">
+  <h1>Purchase Details</h1>
+  <p><strong>ID:</strong> {{ purchase.id }}</p>
+  <p><strong>Amount:</strong> {{ purchase.amount | currency:purchase.currency }}</p>
+  <p><strong>Product Name:</strong> {{ purchase.product.name }}</p>
+  <p><strong>Product Description:</strong> {{ purchase.product.description }}</p>
+  <p><strong>Product Price:</strong> {{ purchase.product.price | currency:purchase.currency }}</p>
+  <p><strong>Status:</strong> {{ purchase.status }}</p>
+  <p><strong>Message:</strong> {{ getStatusMessage(purchase.status) }}</p>
+</div>

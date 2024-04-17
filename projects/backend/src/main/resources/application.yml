@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/postgres?serverTimezone=UTC&prepareThreshold=0&preparedStatementCacheQueries=0
+    username: ${POSTGRES_USERNAME:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+  flyway:
+    enabled: true
+    baselineOnMigrate: true
+  cloud:
+    openfeign:
+      client:
+        config:
+          upgate-service:
+            url: https://api.sandbox.upgate.com
+
+app:
+  api-key: ${API_KEY:1115b450-fa58-47d6-b94b-d25b9e948771}
+
+springdoc:
+  default-produces-media-type: application/json

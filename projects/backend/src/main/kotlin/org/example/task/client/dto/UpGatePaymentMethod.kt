@@ -1,0 +1,30 @@
+package org.example.task.client.dto
+
+enum class UpGatePaymentMethod {
+    CARD,
+    ALIPAY,
+    UPI,
+    GIROPAY,
+    EPS,
+    SOFORT,
+    IDEAL,
+    MULTIBANCO,
+    MBWAY,
+    WECHAT,
+    INSTANT_BANK_TRANSFER,
+    CODI,
+    SPEI,
+    PIX,
+    PAGOEFECTIVO,
+    PSE,
+    CRYPTO,
+    MYBANK,
+    SATISPAY,
+    AIRCASH,
+    BLIK,
+    NUPAY,
+    ALIPAY_PLUS,
+    MPESA,
+    KAKAO_PAY,
+}
+

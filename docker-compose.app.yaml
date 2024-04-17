@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./projects/backend
+    networks:
+      - core_network
+    depends_on: [ postgres, webhook ]
+    ports:
+      - "8080:8080"
+    environment:
+      API_KEY: 1115b450-fa58-47d6-b94b-d25b9e948771
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+  ui:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./projects/ui
+    networks:
+      - core_network
+    ports:
+      - "4200:4200"
+  webhook:
+    entrypoint: [ "whcli", "forward", "--token=460c320a-ed18-42a4-8fde-15130877b8e9", "--api-key=ef6ef2f8-3e48-4f77-a54c-3891dc11c05c",
+                  "--target=http://api:8080/api/webhook/upgate/transaction" ]
